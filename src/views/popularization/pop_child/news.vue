@@ -155,7 +155,7 @@ export default {
         border-bottom: 1px solid #eee;
         overflow: hidden;
         height: 23px;
-        width: 100%1v;
+        width: 100%;
     }
     .title_one{
         float: left;
