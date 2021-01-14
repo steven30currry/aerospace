@@ -1,10 +1,19 @@
 <template>
-  <h1>first</h1>
+  <div>
+      <h1>first</h1>
+      <describe-card></describe-card>
+  </div>
+
 </template>
 
 <script>
+import DescribeCard from '../../components/describeCard/DescribCard.vue'
+
 export default {
-    name:'First'
+    name:'First',
+    components:{
+      DescribeCard
+    }
 }
 </script>
 

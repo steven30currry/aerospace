@@ -18,6 +18,6 @@ export default {
 @import "./assets/css/normalize.css";
 @import "./assets/css/fontclass.css";
 body{
-  background: white;
+  background: #EAF3FD;
 }
 </style>
