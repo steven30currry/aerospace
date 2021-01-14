@@ -13,12 +13,17 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path:'/',
+      redirect:'/first'
+    },
+    {
       path:'/home',
       component:home
     },
     {
       path:'/first',
       component:First
+    
     },
     {
       path:'/second',
