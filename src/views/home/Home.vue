@@ -1,13 +1,18 @@
 <template>
-  <img src="https://apod.nasa.gov/apod/image/2101/30dor_hubble_960.jpg" alt="">
+  <nav-bar></nav-bar>
 </template>
 
 <script>
+import NavBar from '../../components/navBar/NarBar'
 export default {
-    name:'home'
+    name:'home',
+    components:{
+      NavBar
+    }
 }
 </script>
 
 <style>
+
 
 </style>

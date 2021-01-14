@@ -17,4 +17,7 @@ export default {
 <style>
 @import "./assets/css/normalize.css";
 @import "./assets/css/fontclass.css";
+body{
+  background: white;
+}
 </style>
