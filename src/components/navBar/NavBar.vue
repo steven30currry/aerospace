@@ -6,11 +6,11 @@
     </label>
     <div class="wrapper">
         <ul class="menu">
-        <li><a href="#">天文天象</a></li>
-        <li><a href="#">天体物理</a></li>
-        <li><a href="#">近地轨道</a></li>
-        <li><a href="#">深空探测</a></li>
-        <li><a href="#">返回</a></li>
+        <li><a @click="first" href="#">天文天象</a></li>
+        <li><a @click="second" href="#">天体物理</a></li>
+        <li><a @click="third" href="#">近地轨道</a></li>
+        <li><a @click="forth" href="#">深空探测</a></li>
+        <li><a @click="back" href="#">返回</a></li>
     </ul>
     </div>
   </div>
@@ -19,6 +19,29 @@
 <script>
 export default {
     name:"NavBar",
+    date(){
+        return{
+
+        }
+    },
+    methods:{
+        first(){
+            this.$router.push('/firstview')
+        },
+        second(){
+            this.$router.push('/secondview')
+
+        },
+        third(){
+            this.$router.push('/thirdview')
+        },
+        forth(){
+            this.$router.push('/fouthview')
+        },
+        back(){
+            this.$router.push('/home')
+        }
+    }
 }
 
 </script>
@@ -38,14 +61,15 @@ export default {
      width: 100%;
      background: linear-gradient(-135deg,#c850c0,#4158d8);
      clip-path: circle(25px at calc(100% - 45px) 45px);
-     transition: all 0.3s ease-in-out;         
+     transition: all 0.3s ease-in-out;      
+     z-index: 19   
 
  }
  #active:checked ~ .wrapper{
      clip-path: circle(75%);
  }
  .menu-btn{
-     position: absolute;
+     position: fixed;
      right: 20px;
      top: 20px;
      height: 50px;
@@ -55,7 +79,7 @@ export default {
      background: linear-gradient(-135deg,#c850c0,#4158d8);
      color: #fff;
      cursor: pointer;
-     z-index: 2;
+     z-index: 20;
      border-radius: 50%;
      transition: all 0.3s ease;
  }

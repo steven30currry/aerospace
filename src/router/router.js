@@ -4,7 +4,10 @@ Vue.use(Router)
 
 import home from '../views/home/Home'
 import popularization from '../views/popularization/Popularization'
-import First from '../views/first/first'
+import FirstView from '../views/first/firstview'
+import SecondView from '../views/first/secondview'
+import ThirdView from '../views/first/thirdview'
+import ForthView from '../views/first/forthview'
 import Second from '../views/second/second'
 import Third from '../views/third/third'
 
@@ -12,17 +15,32 @@ export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    {
+    { 
       path:'/',
-      redirect:'/first'
+      redirect:'/home'
     },
     {
       path:'/home',
       component:home
     },
     {
-      path:'/first',
-      component:First
+      path:'/firstview',
+      component:FirstView
+    
+    },
+    {
+      path:'/secondview',
+      component:SecondView
+    
+    },
+    {
+      path:'/thirdview',
+      component:ThirdView
+    
+    },
+    {
+      path:'/forthview',
+      component:ForthView
     
     },
     {
