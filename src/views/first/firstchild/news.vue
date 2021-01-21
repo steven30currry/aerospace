@@ -8,7 +8,10 @@
       </div>
       <div class="list">
           <div  class="listItem" v-for="(item,index) in messageList" :key="index">
-            <div class="itemIndex">{{index+1}}</div>
+            <div v-if="index==0" style="color:#FE2D46" class="itemIndex">{{index+1}}</div>
+            <div v-else-if="index==1" style="color:#F60" class="itemIndex">{{index+1}}</div>
+            <div v-else-if="index==2" style="color:#ff8607" class="itemIndex">{{index+1}}</div>
+            <div v-else class="itemIndex">{{index+1}}</div>
             <div class="itemContent">
                 <a :href="item.url">
                     <h4 class="listTitle">{{item.title}}</h4>
@@ -16,7 +19,7 @@
                 <p class="excerpt">{{item.describe}}</p>
                 <div class="iconfont icon-biaoqian itemTag">
                     标签：
-                    <el-tag type="info" size="mini" effect="dark" style="margin-right:10px" v-for="(item1,index) in item.tags.slice(0,2)" :key="index">
+                    <el-tag type="info" size="mini" effect="plain" style="margin-right:10px" v-for="(item1,index) in item.tags.slice(0,2)" :key="index">
                         {{item1 }}
                     </el-tag>
                 </div>
@@ -33,13 +36,13 @@
 
 <script>                     
 export default {         
-    name:'news',
+    name:'News',
     data(){
         return {
             messageList:[
                  {
                 "date": "2021年1月11日",
-                "describe": "▲ 试车现场 继续阅读先进液体、固体大推力发动机新进展！将支撑长五B、重型等火箭 →▲ 试车现场 继续阅读先进液体、固体大推力发动机新进展！将支撑长五B、重型等火箭 →",
+                "describe": "试车现场 继续阅读先进液体、固体大推力发动机新进展！将支撑长五B、重型等火箭，试车现场 继续阅读先进液体、固体大推力发动机新进展！将支撑长五B、重型等火箭 →",
                 "imgsrc": "http://www.spaceflightfans.cn/wp-content/uploads/2021/01/9-1610344882.gif",
                 "tags": [
                     "中国空间站",
@@ -90,49 +93,8 @@ export default {
                 "title": "监管拖后腿，莫门图斯太空拖船首飞推迟",
                 "url": "http://www.spaceflightfans.cn/85664.html"
             },
-            {
-                "date": "2021年1月10日",
-                "describe": "太空探索公司在1月5日报给FCC的一份材料中称，它此前一天就这项申请同FCC官员进行了对话。材料中说：“太空探索公司确认，若拿到适当授权，其即将进行的‘运输者’1任务将包含瞄准在极轨道运行的10颗‘星链’卫星”。 继续阅读FCC准许向极地轨道发射“星链” →OneWeb、SpaceX、Starlink Program、欧洲航天、美国航天、航天科技、重大计划",
-                "imgsrc": "http://www.spaceflightfans.cn/wp-content/uploads/2021/01/9-1610258725.png",
-                "tags": [
-                    "OneWeb",
-                    "SpaceX",
-                    "Starlink Program",
-                    "欧洲航天",
-                    "美国航天",
-                    "航天科技",
-                    "重大计划"
-                ],
-                "title": "FCC准许向极地轨道发射“星链”",
-                "url": "http://www.spaceflightfans.cn/85661.html"
-            },
-            {
-                "date": "2021年1月9日",
-                "describe": "类似1986年“五星齐出”的“哈雷舰队”，2020年中国、美国、阿联酋三国火星探测器不约而同奔向火星，并将于今年陆续抵达火星。其中阿联酋的“希望号”仅是环绕探测器，因此“刹车”入轨是其最大的挑战。而NASA的“毅力号”火星车则要经历航天强国的“必考题”，也就是曾使苏联、欧洲众多探测器折戟的“黑色七分钟”考验。好在“毅力号”延承了“好奇号”的成熟着陆方案，但科学载荷上推陈出新，首先搭载的“灵巧号”（Ingenuity）火星直升机使人类首次在火表具备了公里级的机动能力，而采样封装机构更是拉开了火星采样返回系列任务的序幕。要数最具看点的火星任务，当属我国的“天问一号”，凭借长征五号“豪横”的运力，“天问一号”选择“毕其功于一役”，有望成为人类航天史上首次通过一次发射即实现对火星的环绕、着陆和表面巡视的探测器。如果成功，将使我国成为世界第二个有能力进行火表巡视的国家。 除了火星表面之外，月表今年将继续迎来一批新“客人”，首先NASA凭借其“商业月球有效载荷服务”（Commercial Lunar Payload Services）扶植多家月球着陆器厂商，其中两家计划在今年执行落月任务。在月表缺席许久的俄罗斯今年有望发射着陆探测器“月球-25”，作为苏联解体30年后首个俄制着陆探测器，“月球-25”计划着陆月球南极。而月球南极也是美、欧等多国未来载人登月任务的优选地点。印度在“月船-2”号着陆月表失败后，今年有可能发射同一架构的“月船-3”号探测器，再次向月表软着陆这一挑战发起冲击。 继续阅读2021世界航天热点展望 →",
-                "imgsrc": "http://www.spaceflightfans.cn/wp-content/uploads/2021/01/毅力号.jpg",
-                "tags": [
-                    "中国航天",
-                    "俄罗斯航天",
-                    "印度航天",
-                    "原创文章",
-                    "日本航天",
-                    "欧洲航天",
-                    "美国航天"
-                ],
-                "title": "2021世界航天热点展望",
-                "url": "http://www.spaceflightfans.cn/85648.html"
-            },
-            {
-                "date": "2021年1月9日",
-                "describe": "这是人类迄今为止在月球上放的艺术品。高8.5cm的铝制雕像，一个穿个太空服的宇航员，背后的纪念碑是逝去的14名宇航员的姓名，包括但不限于这14名宇航员，还有为太空事业做出贡献的人。 继续阅读倒下的宇航员，那些能让人类站在星星上的先驱者们 →这是人类迄今为止在月球上放的艺术品。高8.5cm的铝制雕像，一个穿个太空服的宇航员，背后的纪念碑是逝去的14名宇航员的姓名，包括但不限于这14名宇航员，还有为太空事业做出贡献的人。 继续阅读倒下的宇航员，那些能让人类站在星星上的先驱者们 →",
-                "imgsrc": "http://www.spaceflightfans.cn/wp-content/uploads/2021/01/9-1610160711.jpeg",
-                "tags": [
-                    "俄罗斯航天",
-                    "美国航天"
-                ],
-                "title": "倒下的宇航员，那些能让人类站在星星上的先驱者们",
-                "url": "http://www.spaceflightfans.cn/85629.html"
-            },
+    
+          
                 
             ]
         }
@@ -145,17 +107,17 @@ export default {
         margin: 0;
     }
     .news{
-        background: #cdcdcd;
-        height: 800px;
+        background: white;
         width: 400px;
+        height: 680px;
     }
     .title2{
         line-height: 23px;
-        padding-bottom: 10px;
         border-bottom: 1px solid #eee;
         overflow: hidden;
-        height: 23px;
+        height: 35px;
         width: 100%;
+        background: #EAF3FD;
     }
     .title_one{
         float: left;
@@ -165,10 +127,13 @@ export default {
         padding-left: 20px;
         margin-top: 3px;
         background-position: -406px -821px;
-        color: #666;
+        color: rgb(167, 157, 18);
         float: right;
         display: inline;
         padding-right: 10px;
+    }
+    .title_two:hover{
+        color: rgb(214, 201, 18)
     }
     .title2 h4 {
         margin: 0px;
@@ -185,11 +150,11 @@ export default {
     }
     .listItem{
         display: flex;
-        padding: 16px 0px 16px 0;
+        padding: 16px 20px 16px 0;
         position: relative;
         background: #fff;
         width: 100%;
-        height: 130px;
+        height: 160px;
         border: solid #ebebeb;
         border-width: .5px 0 0;
     }
@@ -199,6 +164,7 @@ export default {
         color: #999999;
         line-height: 1.6;
         font-size: 18px;
+        font-weight: 600;
     }
     .itemContent{
         flex: 1 1;
@@ -228,12 +194,14 @@ export default {
         line-height: 25px;
         margin-top: 2px;
         min-height: 25px;
+        padding-right: 15px;
     }
     .itemTag{
         bottom: 16px;
         position: absolute;
         font-size: 14px;
         height: 16px;
+        color: #8590a6;
     }
     .itemImg{
         display: block;

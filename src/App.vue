@@ -17,6 +17,9 @@ export default {
 <style>
 @import "./assets/css/normalize.css";
 @import "./assets/css/fontclass.css";
+*{
+  box-sizing: border-box;
+}
 body{
   background: #EAF3FD;
 }

@@ -3,7 +3,7 @@
         <div class="item-all">
             <div class="item" v-for="(index) in 6" :key="index">
                 <span class="left-top"></span>
-                <img src="../../assets/img/img1.jpg" alt="">
+                <img src="../../../assets/img/img1.jpg" alt="">
                 <div class="item-des">
                     <h5>无人驾驶飞机</h5>
                     <a href="">查看更多</a>
@@ -13,7 +13,7 @@
         </div>
         <!--分页-->
         <ul> 
-            <li><a href="#"><</a></li>
+            <li><a href="#"></a></li>
             <li><a href="#" class="active">1</a></li> 
             <li><a href="#">2</a></li> 
             <li><a href="#">3</a></li> 
@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name:'',
+  name:'DescribCard',
   data(){
    return {
    }
@@ -56,13 +56,14 @@ export default {
     flex-wrap: wrap;
 }
 .item{
-    width: 342px;
+    width: 320px;
     height: 169px;
     padding: 30px 15px;
     display: flex;
     justify-content: space-between;
     background: #fff;
-    margin: 10px;
+    margin-right: 15px;
+    margin-bottom: 15px;
     position: relative;
 }
 .item:hover{

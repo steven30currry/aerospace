@@ -8,7 +8,6 @@
       </div>
       <div class="mid">
         <kepu></kepu>
-        <news></news>
       </div>
 
   </div>
@@ -18,7 +17,6 @@
 import Swiper from './pop_child/swiper'
 import History from './pop_child/history'
 import Kepu from './pop_child/kepu'
-import News from './pop_child/news'
 
 export default {
     name:'popularization',
@@ -26,7 +24,7 @@ export default {
         Swiper,
         History,
         Kepu,
-        News
+        
     }
 }
 </script>
