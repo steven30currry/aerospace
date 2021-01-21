@@ -1,43 +1,50 @@
 <template>
   <div class="firstview">
-    <nav-bar></nav-bar>
+    <nav-bar2></nav-bar2>
     <div class="content">
       <brief></brief>
       <describ-card class="desc"></describ-card>
     </div>
-    <news class="news"></news>
+    <!-- <div class="firstview-right">
+        <news class="news"></news>
+        <baike class="baike"></baike>
+    </div> -->
   </div>
 </template>
 
 <script>
 import NavBar from 'components/navBar/NavBar'
+import NavBar2 from 'components/navBar/NavBar2'
 import Brief from './firstchild/brief'
 import DescribCard from './firstchild/DescribCard'
 import News from './firstchild/news'
+import Baike from './firstchild/baike'
 export default {
   name:'FirstView',
   components:{
     Brief,
-    NavBar,
+    NavBar2,
     DescribCard,
-    News
+    News,
+    Baike,
+    NavBar
   }
 }
 </script>
 
 <style>
-  .firstview{
-    display: flex;
-  }
-  .firstview .content{
-    margin:30px auto;
-    margin-left: 20px ;
-  }
-  .firstview .desc{
-    z-index: -5;
-  }
-  .firstview .news{
-    margin-top: 80px;
-    margin-right: 20px;
-  }
+ .firstview{
+   display: flex;
+ }
+ .firstview .content{
+   width: 990px;
+   margin: 20px;
+   margin-top: 50px;
+ }
+ .firstview .news{
+ }
+ .firstview .baike{
+ }
+ .firstview-right{
+ }
 </style>

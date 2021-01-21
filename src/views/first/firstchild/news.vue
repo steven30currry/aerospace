@@ -8,8 +8,8 @@
       </div>
       <div class="list">
           <div  class="listItem" v-for="(item,index) in messageList" :key="index">
-            <div v-if="index==0" style="color:#ff8607" class="itemIndex">{{index+1}}</div>
-            <div v-else-if="index==1" style="color:#ff8607" class="itemIndex">{{index+1}}</div>
+            <div v-if="index==0" style="color:#FE2D46" class="itemIndex">{{index+1}}</div>
+            <div v-else-if="index==1" style="color:#F60" class="itemIndex">{{index+1}}</div>
             <div v-else-if="index==2" style="color:#ff8607" class="itemIndex">{{index+1}}</div>
             <div v-else class="itemIndex">{{index+1}}</div>
             <div class="itemContent">
@@ -19,7 +19,7 @@
                 <p class="excerpt">{{item.describe}}</p>
                 <div class="iconfont icon-biaoqian itemTag">
                     标签：
-                    <el-tag type="info" size="mini" effect="dark" style="margin-right:10px" v-for="(item1,index) in item.tags.slice(0,2)" :key="index">
+                    <el-tag type="info" size="mini" effect="plain" style="margin-right:10px" v-for="(item1,index) in item.tags.slice(0,2)" :key="index">
                         {{item1 }}
                     </el-tag>
                 </div>
@@ -42,7 +42,7 @@ export default {
             messageList:[
                  {
                 "date": "2021年1月11日",
-                "describe": "▲ 试车现场 继续阅读先进液体、固体大推力发动机新进展！将支撑长五B、重型等火箭 →▲ 试车现场 继续阅读先进液体、固体大推力发动机新进展！将支撑长五B、重型等火箭 →",
+                "describe": "试车现场 继续阅读先进液体、固体大推力发动机新进展！将支撑长五B、重型等火箭，试车现场 继续阅读先进液体、固体大推力发动机新进展！将支撑长五B、重型等火箭 →",
                 "imgsrc": "http://www.spaceflightfans.cn/wp-content/uploads/2021/01/9-1610344882.gif",
                 "tags": [
                     "中国空间站",
@@ -93,22 +93,7 @@ export default {
                 "title": "监管拖后腿，莫门图斯太空拖船首飞推迟",
                 "url": "http://www.spaceflightfans.cn/85664.html"
             },
-            {
-                "date": "2021年1月10日",
-                "describe": "太空探索公司在1月5日报给FCC的一份材料中称，它此前一天就这项申请同FCC官员进行了对话。材料中说：“太空探索公司确认，若拿到适当授权，其即将进行的‘运输者’1任务将包含瞄准在极轨道运行的10颗‘星链’卫星”。 继续阅读FCC准许向极地轨道发射“星链” →OneWeb、SpaceX、Starlink Program、欧洲航天、美国航天、航天科技、重大计划",
-                "imgsrc": "http://www.spaceflightfans.cn/wp-content/uploads/2021/01/9-1610258725.png",
-                "tags": [
-                    "OneWeb",
-                    "SpaceX",
-                    "Starlink Program",
-                    "欧洲航天",
-                    "美国航天",
-                    "航天科技",
-                    "重大计划"
-                ],
-                "title": "FCC准许向极地轨道发射“星链”",
-                "url": "http://www.spaceflightfans.cn/85661.html"
-            },
+    
           
                 
             ]
@@ -122,8 +107,9 @@ export default {
         margin: 0;
     }
     .news{
-        background: #cdcdcd;
+        background: white;
         width: 400px;
+        height: 680px;
     }
     .title2{
         line-height: 23px;
@@ -131,6 +117,7 @@ export default {
         overflow: hidden;
         height: 35px;
         width: 100%;
+        background: #EAF3FD;
     }
     .title_one{
         float: left;
@@ -140,10 +127,13 @@ export default {
         padding-left: 20px;
         margin-top: 3px;
         background-position: -406px -821px;
-        color: #666;
+        color: rgb(167, 157, 18);
         float: right;
         display: inline;
         padding-right: 10px;
+    }
+    .title_two:hover{
+        color: rgb(214, 201, 18)
     }
     .title2 h4 {
         margin: 0px;
@@ -160,7 +150,7 @@ export default {
     }
     .listItem{
         display: flex;
-        padding: 16px 0px 16px 0;
+        padding: 16px 20px 16px 0;
         position: relative;
         background: #fff;
         width: 100%;
@@ -204,12 +194,14 @@ export default {
         line-height: 25px;
         margin-top: 2px;
         min-height: 25px;
+        padding-right: 15px;
     }
     .itemTag{
         bottom: 16px;
         position: absolute;
         font-size: 14px;
         height: 16px;
+        color: #8590a6;
     }
     .itemImg{
         display: block;

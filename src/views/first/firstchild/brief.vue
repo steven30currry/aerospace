@@ -23,7 +23,7 @@ export default {
 
 <style>
     .brief{
-        width:1056px;
+        width:990px;
         margin-bottom: 20px;
     }
     .brief-location{

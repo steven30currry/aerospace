@@ -56,7 +56,7 @@ export default {
     flex-wrap: wrap;
 }
 .item{
-    width: 342px;
+    width: 320px;
     height: 169px;
     padding: 30px 15px;
     display: flex;

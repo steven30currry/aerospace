@@ -27,18 +27,5 @@ export default {
 </script>
 
 <style>
-  .firstview{
-    display: flex;
-  }
-  .firstview .content{
-    margin:30px auto;
-    margin-left: 20px ;
-  }
-  .firstview .desc{
-    z-index: -5;
-  }
-  .firstview .news{
-    margin-top: 80px;
-    margin-right: 20px;
-  }
+
 </style>

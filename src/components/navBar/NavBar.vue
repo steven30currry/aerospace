@@ -30,7 +30,6 @@ export default {
         },
         second(){
             this.$router.push('/secondview')
-
         },
         third(){
             this.$router.push('/thirdview')
@@ -47,7 +46,7 @@ export default {
 </script>
     
 <style>
- *{
+ .navbar{
      margin: 0;
      padding: 0;
      box-sizing: border-box;
