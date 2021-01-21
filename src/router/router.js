@@ -7,6 +7,7 @@ import popularization from '../views/popularization/Popularization'
 import First from '../views/first/first'
 import Second from '../views/second/second'
 import Third from '../views/third/third'
+import Test from '../views/second/test.vue'
 
 export default new Router({
   mode: 'history',
@@ -28,6 +29,10 @@ export default new Router({
     {
       path:'/second',
       component:Second
+    },
+    {
+      path:'/test',
+      component:Test
     },
     {
       path:'/third',
