@@ -57,7 +57,6 @@ export default {
 .sidebar-all{
     width: 100%;
     display: block;
-    border: 1px solid black;
     width: 330px;
     padding: 15px;
     font-family: Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;

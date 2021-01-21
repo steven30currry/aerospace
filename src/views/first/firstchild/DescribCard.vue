@@ -12,15 +12,15 @@
             </div>
         </div>
         <!--分页-->
-        <ul> 
-            <li><a href="#"></a></li>
-            <li><a href="#" class="active">1</a></li> 
-            <li><a href="#">2</a></li> 
-            <li><a href="#">3</a></li> 
-            <li><a href="#">4</a></li> 
-            <li><a href="#">5</a></li> 
-            <li><a href="#">></a></li> 
-        </ul>
+        <div class="pagination">
+            <a href="#" class="prev"><i class="fas fa-angle-left"></i></a>
+            <a href="#" class="num active">1</a>
+            <a href="#" class="num">2</a>
+            <a href="#" class="num">3</a>
+            <a href="#" class="num">4</a>
+            <a href="#" class="num">5</a>
+            <a href="#" class="next"><i class="fas fa-angle-right"></i></a>
+        </div>
     </div>
 </template>
 
@@ -72,7 +72,7 @@ export default {
     transition: 0.5s;
 }
 
-.item .left-top{
+/* .item .left-top{
     position: absolute;
     left: 0px;
     top: 0px;
@@ -80,8 +80,8 @@ export default {
     border-color: #0079FF;
     border-width: 2px 0 0 2px;
     padding: 9px;
-}
-.item .right-bottom{
+} */
+/* .item .right-bottom{
     position: absolute;
     right: 0;
     bottom: 0;
@@ -89,7 +89,7 @@ export default {
     border-style: solid;
     border-color: #0079FF;
     border-width: 0 2px 2px 0;
-}
+} */
 .item img{
     width: 143px;
     height: 107px;
@@ -113,29 +113,56 @@ export default {
     text-align: center;
     line-height: 34px;
 }
-ul{
-    display: flex; margin: 0 auto; 
-    padding: 0; 
-    list-style: none;
+.pagination{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Open Sans",sans-serif;
+    text-align: center;
+    /* transform: translateY(-50%); */
 }
-ul li a{
-    text-decoration: none; 
-    position: relative; 
-    display: block; 
-    width: 40px; 
-    height: 40px; 
-    font-size: 20px; 
-    text-align: center; 
-    line-height: 40px; 
-    background: #353535; 
-    color: #565656; 
-    margin: 5px; 
-    border-radius: 4px; 
-    box-shadow: inset 0 5px 10px rgba(0, 0, 0, .1), 0 2px 5px rgba(0, 0, 0, .5); 
-    transition: all 300ms;
+.pagination a{
+  margin: 6px 1px;
+  display: inline-block;
+  width: 60px;
+  background: #2c3e50;
+  height: 60px;
+  line-height: 60px;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.3s;
+  position: relative;
+  padding-right: 26px;
 }
-ul li a.active , ul li a:hover{
-    color: #fff; 
-    text-shadow: 0 0 20px rgb(255, 224, 27), 0 0 20px rgb(255, 224, 27), 0 0 20px rgb(255, 224, 27), 0 0 20px rgb(255, 224, 27), 0 0 20px rgb(255, 224, 27), 0 0 20px rgb(255, 224, 27), 0 0 20px rgb(255, 224, 27), 0 0 20px rgb(255, 224, 27);
+.prev,.next{
+  padding-right: 12px !important;
+  font-size: 20px;
+}
+.pagination a:hover{
+  color: #e74c3c;
+}
+.active{
+  color: #e74c3c !important;
+}
+.prev{
+  border-radius: 30px 0 0 30px;
+}
+.next{
+  border-radius: 0 30px 30px 0;
+}
+.pagination a::before,.pagination a:after{
+  content: "";
+  position: absolute;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+}
+.num::before,.next::before{
+  border-right: 20px solid #2c3e50;
+  right: 100%;
+}
+.num:after,.prev:after{
+  border-right: 20px solid #f1f1f1;
+  right: 0;
 }
 </style>
