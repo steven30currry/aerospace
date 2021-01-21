@@ -1,4 +1,4 @@
-
+const webpack = require("webpack")
 module.exports = {
     lintOnSave:false,
 
@@ -12,6 +12,13 @@ module.exports = {
                 'views': '@/views',
 
             }
-        }
+        },
+        plugins: [ 
+            new webpack.ProvidePlugin({ 
+                  $:"jquery", 
+                  jQuery:"jquery", 
+                 "windows.jQuery":"jquery"
+         }) 
+       ]
     }
 }
