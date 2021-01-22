@@ -1,30 +1,30 @@
 <template>
     <div class="all">
         <div class="item-all">
-            <div class="item" v-for="(index) in 6" :key="index">
-                <span class="left-top"></span>
-                <img src="../../../assets/img/img1.jpg" alt="">
-                <div class="item-des">
-                    <h5>无人驾驶飞机</h5>
-                    <a href="">查看更多</a>
+            <div class="item" v-for="(index) in 4" :key="index">
+                <div class="item-tip">
+                    <img src="../../../assets/img/icon_tip.png" alt="">
+                    <span>月球样品</span>
                 </div>
-                <span class="right-bottom"></span>
+                <div class="item-body">
+                    <img src="../../../assets/img/img1.jpg" alt="">
+                    <div class="item-des">
+                        <p class="title">
+                            <a href="">摄影师冰岛拍摄震撼北极光 若UFO降临 </a>
+                        </p>
+                        <div class="des">摄影师冰岛拍摄震撼北极光 若UFO降临 </div>
+                        <div class="time"></div>
+                    </div>
+                </div>
+
             </div>
-        </div>
-        <!--分页-->
-        <div class="pagination">
-            <a href="#" class="prev"><i class="fas fa-angle-left"></i></a>
-            <a href="#" class="num active">1</a>
-            <a href="#" class="num">2</a>
-            <a href="#" class="num">3</a>
-            <a href="#" class="num">4</a>
-            <a href="#" class="num">5</a>
-            <a href="#" class="next"><i class="fas fa-angle-right"></i></a>
         </div>
     </div>
 </template>
 
 <script>
+
+
 export default {
   name:'DescribCard',
   data(){
@@ -45,6 +45,8 @@ export default {
 </script>
 
 <style scoped>
+/* @import '../../../assets/css/pagination.css'; */
+
 .all{
     display: flex;
     flex-direction: column;
@@ -56,14 +58,15 @@ export default {
     flex-wrap: wrap;
 }
 .item{
-    width: 320px;
-    height: 169px;
-    padding: 30px 15px;
+    width: 480px;
+    height: 180px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
-    background: #fff;
-    margin-right: 15px;
-    margin-bottom: 15px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px 0px rgba(70, 140, 211, 0.2);
+    margin-right: 28px;
+    margin-bottom: 20px;
     position: relative;
 }
 .item:hover{
@@ -71,98 +74,70 @@ export default {
     border: 1px solid#0079FF;
     transition: 0.5s;
 }
-
-/* .item .left-top{
+.item .item-tip{
+    width: 58px;
+    height: 20px;
     position: absolute;
-    left: 0px;
-    top: 0px;
-    border-style: solid;
-    border-color: #0079FF;
-    border-width: 2px 0 0 2px;
-    padding: 9px;
-} */
-/* .item .right-bottom{
+    top: -1px;
+    left: -5px;
+}
+.item .item-tip img{
     position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 9px;
-    border-style: solid;
-    border-color: #0079FF;
-    border-width: 0 2px 2px 0;
-} */
-.item img{
-    width: 143px;
-    height: 107px;
+    border: 0;
+}
+.item .item-tip span{
+    position: relative;
+    top: 2px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFDFE;
+    line-height: 20px;
+    width: 58px;
+    display: inline-block;
+}
+.item .item-body{
+    margin: 0px;
+    padding: 0px;
+    font-family: '\5FAE\8F6F\96C5\9ED1';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.item .item-body img{
+    width: 210px;
+    height: 140px;
 }
 .item .item-des{
     display: flex;
     flex-direction: column;
-    width: 135px;
+    width: 220px;
     justify-content: space-between;
+    /* border: 1px solid red; */
+    margin-left: 15px;
+    height: 126px;
 }
-.item .item-des h5{
-    color: #444;
-    font-weight: 600;
+.item .item-des .title{
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    font-family: '\5FAE\8F6F\96C5\9ED1';
     font-size: 16px;
+    color: #102435;
+    padding-bottom: 10px;
+    width: 220px;
 }
-.item .item-des a{
-    width: 90px;
-    height: 34px;
-    background: #ed1651;
-    color: #fff;
-    text-align: center;
-    line-height: 34px;
-}
-.pagination{
-    margin: 0px;
-    padding: 0px;
-    text-decoration: none;
-    box-sizing: border-box;
-    font-family: "Open Sans",sans-serif;
-    text-align: center;
-    /* transform: translateY(-50%); */
-}
-.pagination a{
-  margin: 6px 1px;
-  display: inline-block;
-  width: 60px;
-  background: #2c3e50;
-  height: 60px;
-  line-height: 60px;
-  color: #fff;
-  font-weight: 600;
-  transition: 0.3s;
-  position: relative;
-  padding-right: 26px;
-}
-.prev,.next{
-  padding-right: 12px !important;
-  font-size: 20px;
-}
-.pagination a:hover{
-  color: #e74c3c;
-}
-.active{
-  color: #e74c3c !important;
-}
-.prev{
-  border-radius: 30px 0 0 30px;
-}
-.next{
-  border-radius: 0 30px 30px 0;
-}
-.pagination a::before,.pagination a:after{
-  content: "";
-  position: absolute;
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent;
-}
-.num::before,.next::before{
-  border-right: 20px solid #2c3e50;
-  right: 100%;
-}
-.num:after,.prev:after{
-  border-right: 20px solid #f1f1f1;
-  right: 0;
+.item .item-des .des{
+    width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 24px;
+    font-size: 14px;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    font-family: '\5FAE\8F6F\96C5\9ED1';
 }
 </style>
