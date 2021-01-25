@@ -30,6 +30,7 @@
 
           </div>
       </div>
+      <div class="end"></div>
   </div>
 </template>
 
@@ -92,18 +93,6 @@ export default {
                 "title": "监管拖后腿，莫门图斯太空拖船首飞推迟",
                 "url": "http://www.spaceflightfans.cn/85664.html"
             },
-              {
-                "date": "2021年1月10日",
-                "describe": "莫门图斯总裁肯尼迪在1月5日以访谈形式报送给美国证交会的一份文件中称，审核工作推迟并非是因为什么具体问题。他说，FAA并未表示其自己存有什么具体担忧，只是说莫门图斯有效载荷的跨部门审核工作需要花更多时间来完成。他还说，公司已通过了所需其它许可证的跨部门审核，比如国家海洋与大气管理局（NOAA）的一项审核。作为商业遥感监管工作的一部分，NOAA要为“活力骑乘”飞行器上的一台相机办理许可。NOAA网站已把莫门图斯列入拿到商业遥感许可证的公司。 继续阅读监管拖后腿，莫门图斯太空拖船首飞推迟 →",
-                "imgsrc": "http://www.spaceflightfans.cn/wp-content/uploads/2021/01/0-1610258744.png",
-                "tags": [
-                    "SpaceX",
-                    "美国航天",
-                    "航天科技"
-                ],
-                "title": "监管拖后腿，莫门图斯太空拖船首飞推迟",
-                "url": "http://www.spaceflightfans.cn/85664.html"
-            },
     
           
                 
@@ -118,7 +107,9 @@ export default {
         margin: 0;
     }
     .news{
-        width: 370px;
+        background: white;
+        width: 400px;
+        height: 680px;
     }
     .title2{
         line-height: 23px;
@@ -136,13 +127,13 @@ export default {
         padding-left: 20px;
         margin-top: 3px;
         background-position: -406px -821px;
-        color: #9195AC;
+        color: rgb(167, 157, 18);
         float: right;
         display: inline;
         padding-right: 10px;
     }
     .title_two:hover{
-        color: rgb(49,94,251)
+        color: rgb(214, 201, 18)
     }
     .title2 h4 {
         margin: 0px;
@@ -155,6 +146,7 @@ export default {
     }
     .list{
         width: 100%;
+        height: 1000px;
     }
     .listItem{
         display: flex;
@@ -162,7 +154,7 @@ export default {
         position: relative;
         background: #fff;
         width: 100%;
-        height: 155px;
+        height: 160px;
         border: solid #ebebeb;
         border-width: .5px 0 0;
     }
@@ -179,7 +171,7 @@ export default {
         overflow: hidden;
     }
     .listTitle{
-        font-size: 17px;
+        font-size: 18px;
         line-height: 28px;
         max-height: 56px;
         display: -webkit-box;

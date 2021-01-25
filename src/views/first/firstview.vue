@@ -22,7 +22,8 @@
           </ul>
         </div>
         <div class="secondary">
-            <side-bar-card :dataList="dataList"></side-bar-card>
+          <news class="sec-news"></news>
+          <carousel></carousel>
         </div>
     </div>
   </div>
@@ -34,6 +35,8 @@ import NavBar2 from 'components/navBar/NavBar2'
 import Brief from './firstchild/brief'
 import SideBarCard from '../../components/sideBarCard/SideBarCard.vue'
 import DescribCard from './firstchild/DescribCard.vue'
+import news from './firstchild/news'
+import Carousel from 'components/carousel/Carousel'
 
 export default {
   name:'FirstView',
@@ -41,7 +44,9 @@ export default {
     Brief,
     NavBar2,
     SideBarCard,
-    DescribCard
+    DescribCard,
+    news,
+    Carousel
   },
   data(){
     return{
@@ -95,15 +100,15 @@ export default {
 </script>
 <style>
 .firstview{
-  margin: 0;
+  /* margin: 0;
   background-position: top left;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-image: url('../../assets/img/background.jpg');
-  background-color: #464646;
+  /* background-image: url('../../assets/img/background.jpg'); */
+  /* background-color: #464646;
   display: block;
-  height: 100%;
+  height: 100%; */ 
 }
 .navigator-btn{
   position: absolute;
@@ -118,9 +123,9 @@ export default {
   display: flex;
   flex-flow: row wrap;
   align-items: flex-start;
-  margin: 0 auto;
-  max-width: 1400px;
-  background: rgba(00,00,00,0.7);
+  margin-top: 20px;
+  margin-left: 35px;
+  /* background: #ebebeb; */
 }
 .first-container .primary{
   width: 1010px;
@@ -128,10 +133,10 @@ export default {
   flex-direction: column;
   padding-right: 20px;
   margin-right: 20px;
-  border-right: 1px solid rgba(00,00,00,0.7);
+  border-right: 1px solid #ebebeb;
 }
 .primary .des-top{
-  border-bottom: 1px solid rgba(00,00,00,0.7);
+  border-bottom: 1px solid #ebebeb;
   padding-bottom: 14px;
 }
 .first-container .pagination{
@@ -163,5 +168,10 @@ export default {
      rgb(255, 224, 27), 0 0 20px rgb(255, 224, 27), 0 0 20px
      rgb(255, 224, 27), 0 0 20px rgb(255, 224, 27), 0 0 20px
      rgb(255, 224, 27);
+}
+.sec-news{
+   border-bottom: 1px solid #ebebeb;
+   padding-bottom: 14px;
+
 }
 </style>
