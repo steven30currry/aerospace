@@ -20,7 +20,12 @@ export default {
 *{
   box-sizing: border-box;
 }
+#app{
+  width:100%;
+  height: 100%;
+}
 body{
-  background: #EAF3FD;
+  /* background: #EAF3FD; */
+  
 }
 </style>
