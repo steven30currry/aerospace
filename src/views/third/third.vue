@@ -2,8 +2,8 @@
   <div class="third">
     <div class="chat">
       <div class="chat-title">
-        <h1>宇宙知识科普</h1>
-        <h2>机器人</h2>
+        <h1>知识科普</h1>
+        <h2>问答机器人</h2>
         <figure class="avatar">
           <img src="../../assets/img/chat/robot.png" alt="">
         </figure>
@@ -31,11 +31,8 @@ export default {
       }
     },
     mounted(){
-      console.log($)
       chat()
     }
-  
-    
 }
 </script>
 
@@ -54,8 +51,8 @@ Mixins
   @include center;
   content: '';
   display: block;
-  width: 3px;
-  height: 3px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: rgba(255, 255, 255, .5);
   z-index: 2;
@@ -109,9 +106,9 @@ Chat
 --------------------*/
 .chat {
   @include center;
-  width: 300px;
+  width: 700px;
   height: 80vh;
-  max-height: 500px;
+  max-height: 700px;
   z-index: 2;
   overflow: hidden;
   box-shadow: 0 5px 30px rgba(0, 0, 0, .2);
@@ -135,11 +132,11 @@ Chat Title
   text-transform: uppercase;
   text-align: left;
   padding: 10px 10px 10px 50px;
-  
+ 
   h1, h2 {
     font-weight: normal;
-    font-size: 10px;
-    margin: 0;
+    font-size: 14px;
+    margin-bottom: 2px;
     padding: 0;
   }
   
@@ -154,9 +151,9 @@ Chat Title
     z-index: 1;
     top: 8px;
     left: 9px;
-    border-radius: 30px;
-    width: 30px;
-    height: 30px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
     overflow: hidden;
     margin: 0;
     padding: 0;
@@ -196,7 +193,7 @@ Messages
     border-radius: 10px 10px 10px 0;
     background: rgba(0, 0, 0, .3);
     margin: 8px 0;
-    font-size: 11px;
+    font-size: 13px;
     line-height: 1.4;
     margin-left: 35px;
     position: relative;
@@ -218,19 +215,26 @@ Messages
       border-right: 7px solid transparent;
     }
     
+    .left-head{
+      left:-37px;
+    }
+    .right-head{
+      right: -72px;
+    }
     .avatar {
       position: absolute;
       z-index: 1;
       bottom: -15px;
-      left: -35px;
+      // left: -35px;
       border-radius: 30px;
-      width: 30px;
-      height: 30px;
+      width: 33px;
+      height: 33px;
       overflow: hidden;
       margin: 0;
       padding: 0;
       border: 2px solid rgba(255, 255, 255, 0.24);
-
+      margin-right: 35px;
+    
       img {
         width: 100%;
         height: auto;
@@ -238,11 +242,17 @@ Messages
     }
     
     &.message-personal {
+      margin-right: 35px;
+      display: flex;
+      flex-direction: row-reverse;
       float: right;
       color: #fff;
-      text-align: right;
+      text-align: left;
       background: linear-gradient(120deg, #248A52, #257287);
       border-radius: 10px 10px 0 10px;
+      &.right-msg{
+
+      }
       
       &::before {
         left: auto;
@@ -259,6 +269,7 @@ Messages
     }
     
     &.new {
+      flex-direction: row-reverse;
       transform: scale(0);
       transform-origin: 0 0;
       animation: bounce 500ms linear both;
@@ -307,16 +318,17 @@ Message Box
   position: relative;
   
   & .message-input {
+    overflow: hidden;
     background: none;
     border: none;
     outline: none!important;
     resize: none;
     color: rgba(255, 255, 255, .7);
-    font-size: 11px;
-    height: 17px;
+    font-size: 13px;
+    height: 20px;
     margin: 0;
     padding-right: 20px;
-    width: 265px;
+    width: 600px;
   }
   
   textarea:focus:-webkit-placeholder{
@@ -331,7 +343,7 @@ Message Box
     color: #fff;
     border: none;
     background: #248A52;
-    font-size: 10px;
+    font-size: 13px;
     text-transform: uppercase;
     line-height: 1;
     padding: 6px 10px; 
@@ -357,6 +369,7 @@ Custom Srollbar
 .mCSB_inside > .mCSB_container {
   margin-right: 0px;
   padding: 0 10px;
+  padding-bottom: 20px;
 }
 
 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {

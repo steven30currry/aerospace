@@ -29,6 +29,7 @@ export default {
       },
       third(){
         this.$router.push('/third')
+        window.location.reload();//否则点击路由不会刷新
       }
     }
 }

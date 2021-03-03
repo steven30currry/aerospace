@@ -1,17 +1,23 @@
-import 'jquery-ui-dist/jquery-ui'
-import 'jquery-ui-dist/jquery-ui.min.css'
+
 
 export default function chat(){
   var d, h, m,
   i = 0;
+  var msg;
 
   $(window).on('load',(function() {
     $('.messages-content').mCustomScrollbar()
     setTimeout(function() {
-      fakeMessage();
+      getMessage();
     }, 100);
   }));
 
+function timeAdd0(str) {
+    if(str.length<=1){
+        str='0'+str;
+    }
+    return str
+}
 function updateScrollbar() {
   $('.messages-content').mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
   scrollInertia: 10,
@@ -23,22 +29,27 @@ function setDate(){
   d = new Date()
   if (m != d.getMinutes()) {
   m = d.getMinutes();
-  $('<div class="timestamp">' + d.getHours() + ':' + m + '</div>').appendTo($('.message:last'));
+  var day=timeAdd0(d.getHours());
+  var min=timeAdd0(m)
+  $('<div class="timestamp">' +  day + ':' + min + '</div>').appendTo($('.message:last'));
   }
 }
 
 function insertMessage() {
-msg = $('.message-input').val();
-if ($.trim(msg) == '') {
-return false;
-}
-$('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
-setDate();
-$('.message-input').val(null);
-updateScrollbar();
-setTimeout(function() {
-fakeMessage();
-}, 1000 + (Math.random() * 20) * 100);
+  msg = $('.message-input').val();
+  if ($.trim(msg) == '') {
+  return false;
+  }
+  $('<div class="message message-personal">' +
+  '<figure class="avatar right-head"><img src="https://img-blog.csdnimg.cn/20210227161750923.png#pic_center" /></figure>'
+   + msg+'</div>').appendTo($('.mCSB_container')).addClass('new');
+
+  setDate();
+  $('.message-input').val(null);
+  updateScrollbar();
+  setTimeout(function() {
+    getMessage();
+  }, 1000 );
 }
 
 $('.message-submit').click(function() {
@@ -52,38 +63,55 @@ return false;
 }
 })
 
-var Fake = [
-'Hi there, I\'m Fabio and you?',
-'Nice to meet you',
-'How are you?',
-'Not too bad, thanks',
-'What do you do?',
-'That\'s awesome',
-'Codepen is a nice place to stay',
-'I think you\'re a nice person',
-'Why do you think that?',
-'Can you explain?',
-'Anyway I\'ve gotta go now',
-'It was a pleasure chat with you',
-'Time to make a new codepen',
-'Bye',
-':)'
-]
 
-function fakeMessage() {
-if ($('.message-input').val() != '') {
-return false;
-}
-$('<div class="message loading new"><figure class="avatar"><img src="../../assets/img/chat/robot.png" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-updateScrollbar();
 
-setTimeout(function() {
-$('.message.loading').remove();
-$('<div class="message new"><figure class="avatar"><img src="../../assets/img/chat/robot.png" /></figure>' + Fake[i] + '</div>').appendTo($('.mCSB_container')).addClass('new');
-setDate();
-updateScrollbar();
-i++;
-}, 1000 + (Math.random() * 20) * 100);
+function getMessage() {
+  if ($('.message-input').val() != '') {
+  return false;
+  }
+ 
+  $('<div class="message loading new"><figure class="avatar left-head"><img src="https://img-blog.csdnimg.cn/20210202010304545.png#pic_center" /></figure><span></span></div>').appendTo($('.mCSB_container'));
+  updateScrollbar();
+  // 先生成头像
 
-}
+  if(i==0){
+    var beginmsg="你好，我是知识科普机器人"
+    $('.message.loading').remove();
+    $('<div class="message new"><figure class="avatar left-head"><img src="https://img-blog.csdnimg.cn/20210202010304545.png#pic_center" /></figure>' + beginmsg + '</div>').appendTo($('.mCSB_container')).addClass('new');
+    setDate();
+    updateScrollbar();
+    i++
+    return;
+  }
+
+  var question=msg
+  $.ajax({
+    url: "http://39.100.119.221:8085/robat/query/",
+    type: "GET",
+    data:{
+        "questionStr": question
+    },
+    success: function(data) {
+        console.log('yes')
+        answer(data.data)
+    },
+    error: function() {
+        alert('网络错误')//失败
+    }
+  });
+
+  function answer(data){
+    setTimeout(() => {
+      $('.message.loading').remove();
+      $('<div class="message new"><figure class="avatar left-head"><img src="https://img-blog.csdnimg.cn/20210202010304545.png#pic_center" /></figure>' + data + '</div>').appendTo($('.mCSB_container')).addClass('new');
+      setDate();
+      updateScrollbar();
+    }, 1000);
+   
+
+  
+
+  }
+ 
+  }
 }
