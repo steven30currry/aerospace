@@ -4,11 +4,13 @@
     <div @click="first" class="home-div">航空科普</div>
     <div @click="second" class="home-div">中国发展历程</div>
     <div @click="third" class="home-div">机器人</div>
-
+    <div @click="forth" class="home-div">知识图谱</div>
   </div>
 </template>
 
+
 <script>
+
 export default {
     name:'home',
     components:{
@@ -30,7 +32,10 @@ export default {
       third(){
         this.$router.push('/third')
         window.location.reload();//否则点击路由不会刷新
-      }
+      },
+      forth(){
+        this.$router.push('/fifth')
+      },
     }
 }
 </script>

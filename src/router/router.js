@@ -11,6 +11,8 @@ import ForthView from '../views/first/forthview'
 import Second from '../views/second/second'
 import Third from '../views/third/third'
 import Test from '../views/second/test.vue'
+import Forth from '../views/forth/forth'
+import Fifth from '../views/fifth/fifth'
 
 export default new Router({
   mode: 'history',
@@ -60,5 +62,13 @@ export default new Router({
       path:'/popularization',
       component:popularization
     },
+    {
+      path:'/forth',
+      component:Forth
+    },
+    {
+      path:'/fifth',
+      component:Fifth
+    }
   ]
 })
