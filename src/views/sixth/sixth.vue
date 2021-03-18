@@ -47,7 +47,7 @@
         </div>   -->
         <div style="height:5rem" class="panel chart5" >
           <h2>2021中国运载火箭</h2>
-          <div style="height:5rem" class="chart" ></div>
+          <div style="height:4.5rem" class="chart" ></div>
           <div class="panel-footer"></div>
         </div>
         <div class="panel " style="height:10rem">
@@ -295,8 +295,8 @@ export default {
         name: "点位统计",
         type: "pie",
         // 如果radius是百分比则必须加引号
-        radius: ["10%", "70%"],
-        center: ["50%", "42%"],
+        radius: ["30%", "50%"],
+        center: ["50%", "50%"],
         roseType: "radius",
         data: res
         ,
