@@ -18,6 +18,7 @@
     "swiper": "^3.4.2",
     "vue": "^2.6.10",
     "vue-axios": "^3.2.4",
+    "vue-echarts": "^6.0.0-rc.3",
     "vue-router": "^3.0.3"
   },
   "devDependencies": {
@@ -28,6 +29,9 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.14.1",
+    "pug": "^3.0.2",
+    "pug-html-loader": "^1.1.5",
+    "pug-plain-loader": "^1.1.0",
     "sass-loader": "^7.3.1",
     "style-loader": "^2.0.0",
     "vue-cli-plugin-element": "^1.0.1",

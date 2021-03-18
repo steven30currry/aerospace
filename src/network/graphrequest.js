@@ -2,7 +2,7 @@ import request from "./base.js";
 
 export function getGraphResponse(name,depth,nums) {
     return request({
-        url:  "http://39.100.119.221:8085/api/graph",
+        url:  "/space/graph",
         method: 'get',
         params:{
             nodeName:name,

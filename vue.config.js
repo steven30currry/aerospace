@@ -1,7 +1,6 @@
 const webpack = require("webpack")
 module.exports = {
     lintOnSave:false,
-
     configureWebpack: {
         resolve :{
             alias:{
@@ -12,26 +11,25 @@ module.exports = {
                 'views': '@/views',
 
             }
-    },
-    dev: {
-        env: require('./dev.env'),
-        port: 8090,
-        autoOpenBrowser: true,
-        assetsSubDirectory: 'static',
-        assetsPublicPath: '/',
-        proxyTable: {
-          '/api': {
-            target:'http://39.100.119.221:8085/api', // 你请求的第三方接口
-            changeOrigin:true, // 在本地会创建一个虚拟服务端，然后发送请求的数据，并同时接收请求的数据，这样服务端和服务端进行数据的交互就不会有跨域问题
-            pathRewrite:{  // 路径重写，
-              '^/api': ''  // 替换target中的请求地址，也就是说以后你在请求http://api.douban.com/v2/XXXXX这个地址的时候直接写成/api即可。
-            }
-          }
         },
-  
-        cssSourceMap: false
-      }
-    
+    },
+    devServer: {
+        open: true,
+        https: false,
+        port: '8080',
+        host: '127.0.0.1',
+        //以上的ip和端口是我们本机的;下面为需要跨域的
+        proxy: {//配置跨域
+            '/api': {
+                target: 'http://39.100.119.221:8085',//这里后台的地址模拟的;应该填写你们真实的后台接口
+                ws: true,
+                changOrigin: true,//允许跨域
+                pathRewrite: {
+                    '^/api': '/'//请求的时候使用这个api就可以
+                }
+            }
 
-    
+        }
+    },
+
 }

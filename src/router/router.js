@@ -2,17 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
 
-import home from '../views/home/Home'
-import popularization from '../views/popularization/Popularization'
-import FirstView from '../views/first/firstview'
-import SecondView from '../views/first/secondview'
-import ThirdView from '../views/first/thirdview'
-import ForthView from '../views/first/forthview'
-import Second from '../views/second/second'
-import Third from '../views/third/third'
-import Test from '../views/second/test.vue'
-import Forth from '../views/forth/forth'
-import Fifth from '../views/fifth/fifth'
+
 
 export default new Router({
   mode: 'history',
@@ -24,51 +14,35 @@ export default new Router({
     },
     {
       path:'/home',
-      component:home
+      component:resolve => require(['views/home/Home'],resolve)
     },
     {
       path:'/firstview',
-      component:FirstView
-    
+      component:resolve => require(['views/first/firstview'],resolve)    
     },
-    {
-      path:'/secondview',
-      component:SecondView
-    
-    },
-    {
-      path:'/thirdview',
-      component:ThirdView
-    
-    },
-    {
-      path:'/forthview',
-      component:ForthView
-    
-    },
+   
     {
       path:'/second',
-      component:Second
+      component:resolve => require(['views/second/second'],resolve)    
     },
-    {
-      path:'/test',
-      component:Test
-    },
+  
     {
       path:'/third',
-      component:Third
+      component:resolve => require(['views/third/third'],resolve)
     },
-    {
-      path:'/popularization',
-      component:popularization
-    },
+    
     {
       path:'/forth',
-      component:Forth
+      component:resolve => require(['views/forth/forth'],resolve)
     },
     {
       path:'/fifth',
-      component:Fifth
-    }
+      component:resolve => require(['views/fifth/fifth'],resolve)
+    },
+    {
+      path:'/sixth',
+      component:resolve => require(['views/sixth/sixth'],resolve)
+    },
+   
   ]
 })

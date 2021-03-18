@@ -4,30 +4,7 @@
         <div class="brand">
             <a href="#!">航天器知识图谱检索</a>
         </div>
-        <div class="top-nav">
-            <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
-            <ul class="nav-list">
-                <li>
-                <a href="#!">Home</a>
-                </li>
-                <li>
-                <a href="#!">About</a>
-                </li>
-                <li>
-                
-               
-                </li>
-                <li>
-                <a href="#!">Pricing</a>
-                </li>
-                <li>
-               
-                </li>
-                <li>
-                <a href="#!">Contact</a>
-                </li>
-            </ul>
-        </div>
+       
     </div>
     </section>
 

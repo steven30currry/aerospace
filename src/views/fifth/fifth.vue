@@ -10,11 +10,11 @@
   </header>
   <form id="survey-form">
     <div class="form-group">
-      <label id="name-label" for="name">请选择</label>
+      <label id="name-label" for="name">请选择航天器类别</label>
       
        <div class="product-labels">
 
-                  <div class="product-labels__group">
+                  <div style="padding-left:10px" class="product-labels__group">
                     <label v-for="(item,i) in names"  class="product-labels__item">
                       <input v-model="cur_name" :value="item" type="radio" class="product-labels__checkbox" name="type5" >
                       <span class="product-labels__txt">{{names[i]}}</span>
@@ -330,6 +330,9 @@ export default {
   }
 
 /* 以下是选择器css */
+.product-labels__item:hover{
+  color: gold;
+}
 .product {
 
   &-labels {
@@ -337,6 +340,9 @@ export default {
     &__checkbox {
       display: none;
 
+      .product-labels__txt:hover{
+        background: gold;
+      }
       &:checked + .product-labels__txt {
         border-color: #15c3da;
         padding: 10px 13px;
@@ -349,6 +355,7 @@ export default {
     &__group {
       display: flex;
       flex-wrap: wrap;
+      justify-content: flex-start;
       margin-bottom: 15px;
 
       @media screen and (max-width: 992px) {
@@ -363,7 +370,7 @@ export default {
     }
     //间距
     &__item {
-      margin: 5px;
+      margin: 3px;
       cursor: pointer;
 
       &:first-child {

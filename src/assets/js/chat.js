@@ -14,6 +14,7 @@ export default function chat(){
 
 function timeAdd0(str) {
     if(str.length<=1){
+      console.log('33')
         str='0'+str;
     }
     return str

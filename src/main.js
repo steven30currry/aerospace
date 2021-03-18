@@ -6,10 +6,12 @@ import 'element-ui/lib/theme-chalk/index.css';
 import './plugins/element.js'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import echarts from 'echarts'
+import '../node_modules/echarts/map/js/world.js'
 
+Vue.prototype.$echarts=echarts
 Vue.prototype.$axios = axios
-axios.defaults.baseURL = '/api'  //关键代码
-Vue.config.productionTip = false
+// Vue.config.productionTip = false
 
 
 Vue.use(ElementUI);

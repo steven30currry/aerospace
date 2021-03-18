@@ -454,7 +454,9 @@
         //   },
         //   err => alert('网络错误')
         // )
-        axios.get('/graph',{
+
+
+        axios.get('/api/graph',{
           params:{
             nodeName:'载人飞船',
             depth:5,
