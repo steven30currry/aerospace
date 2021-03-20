@@ -12,7 +12,7 @@
 
     import * as d3 from 'd3'
     import TopBar from 'components/topBar/Topbar'
-    import {getGraphResponse} from "network/graphrequest.js";
+    import {getGraphResponse} from "../../network/graphrequest.js";
 
     export default {
       name: "Canvas",
@@ -442,29 +442,30 @@
 
       },
       created(){
-        // getGraphResponse("载人飞船",5,300).then(
-        //   res => {
-        //     console.log(res)
-        //     this.links=res.data.nodes
-        //     this.nodes=res.data.links
-        //     this.$router.push({path:'/forth',query:{
-        //       links:res.data.nodes,
-        //       nodes:res.data.links
-        //     }})
-        //   },
-        //   err => alert('网络错误')
-        // )
+        getGraphResponse("载人飞船",5,300).then(
+          res => {
+            console.log("成功！！！")
+            console.log(res)
+            this.links=res.data.nodes
+            this.nodes=res.data.links
+            this.$router.push({path:'/forth',query:{
+              links:res.data.nodes,
+              nodes:res.data.links
+            }})
+          },
+          err => alert('网络错误')
+        )
 
 
-        axios.get('/api/graph',{
-          params:{
-            nodeName:'载人飞船',
-            depth:5,
-            maxNums:300
-          }
-        })
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+        // axios.get('/api/graph',{
+        //   params:{
+        //     nodeName:'载人飞船',
+        //     depth:5,
+        //     maxNums:300
+        //   }
+        // })
+        // .then(res => console.log(res))
+        // .catch(err => console.log(err))
 
         
       }

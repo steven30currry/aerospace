@@ -12,6 +12,7 @@
     "axois": "^0.0.1-security",
     "core-js": "^2.6.5",
     "d3": "^5.3.0",
+    "echarts": "^4.6.0",
     "element-ui": "^2.4.5",
     "jquery": "^3.5.1",
     "jquery-ui-dist": "^1.12.1",
@@ -19,7 +20,8 @@
     "vue": "^2.6.10",
     "vue-axios": "^3.2.4",
     "vue-echarts": "^6.0.0-rc.3",
-    "vue-router": "^3.0.3"
+    "vue-router": "^3.0.3",
+    "world.js": "0.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.4",
