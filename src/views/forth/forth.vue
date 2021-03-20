@@ -12,7 +12,7 @@
 
     import * as d3 from 'd3'
     import TopBar from 'components/topBar/Topbar'
-    import {getGraphResponse} from "network/graphrequest.js";
+    import {getGraphResponse} from "../../network/graphrequest.js";
 
     export default {
       name: "Canvas",
@@ -444,6 +444,7 @@
       created(){
         getGraphResponse("载人飞船",5,300).then(
           res => {
+<<<<<<< HEAD
             console.log(res)
             // this.links=res.data.nodes
             // this.nodes=res.data.links
@@ -451,6 +452,16 @@
             //   links:res.data.nodes,
             //   nodes:res.data.links
             // }})
+=======
+            console.log("成功！！！")
+            console.log(res)
+            this.links=res.data.nodes
+            this.nodes=res.data.links
+            this.$router.push({path:'/forth',query:{
+              links:res.data.nodes,
+              nodes:res.data.links
+            }})
+>>>>>>> 6c849cb4078df3277f998496669c1b79f164f16b
           },
           err => alert('网络错误')
         )

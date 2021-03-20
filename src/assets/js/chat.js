@@ -1,4 +1,4 @@
-
+import request from "../../network/base";
 
 export default function chat(){
   var d, h, m,
@@ -86,20 +86,34 @@ function getMessage() {
   }
 
   var question=msg
-  $.ajax({
-    url: "http://39.100.119.221:8085/robat/query/",
-    type: "GET",
-    data:{
-        "questionStr": question
-    },
-    success: function(data) {
-        console.log('yes')
-        answer(data.data)
-    },
-    error: function() {
-        alert('网络错误')//失败
+  // $.ajax({
+  //   url: "http://39.100.119.221:8085/robat/query/",
+  //   type: "GET",
+  //   data:{
+  //       "questionStr": question
+  //   },
+  //   success: function(data) {
+  //       console.log('yes')
+  //       answer(data.data)
+  //   },
+  //   error: function() {
+  //       alert('网络错误')//失败
+  //   }
+  // });
+  request({
+    url:  "/space/robat/query",
+    method: 'get',
+    params:{
+        "questionStr":question
     }
-  });
+  }).then(res=>{
+    console.log('yes')
+    console.log(res)
+    answer(res.data.data)
+  }).catch(res=>{
+    alert('网络错误')
+  })
+
 
   function answer(data){
     setTimeout(() => {
