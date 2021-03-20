@@ -145,7 +145,8 @@ a:active {
   top: 0;
   left: 0;
   overflow-y: auto;
-  background-color: #000;
+  background: url(../../assets/img/home.jpg) no-repeat;
+  background-size: 1400px 700px;
 }
 
 .demo {

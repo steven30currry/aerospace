@@ -17,7 +17,7 @@
       </div>
 
     </div>
-    <div class="bg"></div>
+    <!-- <div class="bg"></div> -->
   </div>
 </template>
 
@@ -40,6 +40,14 @@ export default {
 /*--------------------
 Mixins
 --------------------*/
+.third{
+    background-image: linear-gradient(
+        115deg,
+        rgba(58, 58, 158, 0.8),
+        rgba(136, 136, 206, 0.7)
+      );
+
+}
 @mixin center {
   position: absolute;
   top: 50%;

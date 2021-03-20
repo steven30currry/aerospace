@@ -184,7 +184,7 @@ export default {
       }
   },
   mounted(){
-    this.ciyun()
+    // this.ciyun()
   },
  
   methods: {

@@ -2,9 +2,9 @@
   <div class="news">
       <div class="title2">
         <h4 class="title_one">要闻推送</h4>
-        <a class="iconfont icon-huanyihuan title_two" href="">
+        <div @click="huan" class="iconfont icon-huanyihuan title_two" href="">
             换一批
-        </a>
+        </div>
       </div>
       <div class="list">
           <div  class="listItem" v-for="(item,index) in messageList" :key="index">
@@ -34,15 +34,14 @@
 </template>
 
 <script>                     
+import {getHuanResponse} from 'network/huan.js'
 export default {         
     name:'News',
     data(){
         return {
             messageList:[
                  {
-                "date": "2021年1月11日",
                 "describe": "试车现场 继续阅读先进液体、固体大推力发动机新进展！将支撑长五B、重型等火箭，试车现场 继续阅读先进液体、固体大推力发动机新进展！将支撑长五B、重型等火箭 →",
-                "imgsrc": "http://www.spaceflightfans.cn/wp-content/uploads/2021/01/9-1610344882.gif",
                 "tags": [
                     "中国空间站",
                     "中国航天",
@@ -107,7 +106,26 @@ export default {
     
           
                 
-            ]
+            ],
+            page:1
+        }
+    },
+    methods:{
+        huan(){
+            this.page++;
+            console.log(this.messageList[0])
+            getHuanResponse(this.page).then(res =>{
+                var arr=res.data.data
+                console.log(arr)
+                for(var i=0;i<5;i++){
+                    this.messageList[i].describe=arr[i].describe
+                    this.messageList[i].tags=arr[i].tags
+                    this.messageList[i].title=arr[i].title
+                    this.messageList[i].url=arr[i].url
+                }
+
+            })
+        
         }
     }
 }

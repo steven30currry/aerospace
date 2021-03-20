@@ -67,7 +67,7 @@
           const links = data.links;
           const nodes = data.nodes;
           this.simulation = d3.forceSimulation(nodes)
-            .force("link", d3.forceLink(links).id(d => d.id).distance(300))
+            .force("link", d3.forceLink(links).id(d => d.id).distance(250))
             .force("collide",d3.forceCollide().radius(()=>30))
             .force("charge", d3.forceManyBody().strength(-10))
             .force("center", d3.forceCenter(this.width / 2, this.height / 2));
@@ -142,7 +142,7 @@
             .selectAll("circle")
             .data(nodes,d=>d.id)
             .join("circle")
-            .attr("r", 20)
+            .attr("r", 13)
             .attr("class","node")
             .attr("fill", this.color)
             .on("click",this.queryTest)
@@ -163,6 +163,7 @@
             })
             .attr("dy",34)
             .attr("class","nodeName")
+            .style('font-size','15px')
 
           this.simulation.on("tick", () => {
             this.links
@@ -210,7 +211,7 @@
             .attr("markerUnits", "strokeWidth")
             .attr("markerUnits", "userSpaceOnUse")
             .attr("viewBox", "0 -5 10 10")
-            .attr("refX", 26)
+            .attr("refX", 21)
             .attr("refY", 0)
             .attr("markerWidth", 12)
             .attr("markerHeight", 12)
@@ -225,7 +226,7 @@
             .attr("markerUnits", "strokeWidth")
             .attr("markerUnits", "userSpaceOnUse")
             .attr("viewBox", "0 -5 10 10")
-            .attr("refX", -16)
+            .attr("refX", -10)
             .attr("refY", 0)
             .attr("markerWidth", 12)
             .attr("markerHeight", 12)
@@ -381,16 +382,11 @@
         rgba(136, 136, 206, 0.7)
       );
   }
-
-  body{
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-  }
+  
 
   .container2{
     width: 1000px;
-    height: 600px;
+    height: 630px;
     border: 1px solid #2c3e50;
     border-radius:8px;
     margin: 0 auto;

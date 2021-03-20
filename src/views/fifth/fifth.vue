@@ -143,6 +143,12 @@ export default {
     line-height: 1.4;
     color:  #f3f3f3;
     margin: 0;
+    background-image: linear-gradient(
+        115deg,
+        rgba(58, 58, 158, 0.8),
+        rgba(136, 136, 206, 0.7)
+      );
+    
   }
 
   /* mobile friendly alternative to using background-attachment: fixed */
@@ -154,12 +160,13 @@ export default {
     height: 100%;
     width: 100%;
     z-index: -1;
-    background: #1b1b32;
-    background-image: linear-gradient(
-        115deg,
-        rgba(58, 58, 158, 0.8),
-        rgba(136, 136, 206, 0.7)
-      );
+        // background: #1b1b32;
+
+    // background-image: linear-gradient(
+    //     115deg,
+    //     rgba(58, 58, 158, 0.8),
+    //     rgba(136, 136, 206, 0.7)
+    //   );
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
