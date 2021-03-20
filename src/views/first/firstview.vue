@@ -12,7 +12,7 @@
             <div class="baike-title2">
                 <h4 class="baike-title_one">热门词条</h4>
             </div>
-            <div class="ciyun1"></div>
+            <div class="ciyun1" id="ciyun1"></div>
           </div> 
         </div>
     </div>
@@ -24,7 +24,6 @@
 <script>
 
 import news from './firstchild/news'
-
 import Carousel from 'components/carousel/Carousel'
 
 export default {
@@ -78,64 +77,116 @@ export default {
             "time": "2020年10月21日",
             "imgSrc": "//www.sciencemag.org/sites/default/files/styles/grid_thumb_-_290x163__16_9_/public/chimps_1280p_0.jpg?itok=5V193VTf"
           }
-      ]
+      ],
+        msg: 'Welcome to Your Vue.js App',
+          worddata: [
+            {
+              name: "十九大精神",
+              value: 15000
+            },
+            {
+              name: "两学一做",
+              value: 10081
+            },{
+              name: "中华民族",
+              value: 9386
+            },
+            {
+              name: "马克思主义",
+              value: 7500
+            },
+            {
+              name: "民族复兴",
+              value: 7500
+            },
+            {
+              name: "社会主义制度",
+              value: 6500
+            },
+            {
+              name: "国防白皮书",
+              value: 6500
+            },
+            {
+              name: "创新",
+              value: 6000
+            },
+            {
+              name: "民主革命",
+              value: 4500
+            },
+            {
+              name: "文化强国",
+              value: 3800
+            },
+            {
+              name: "国家主权",
+              value: 3000
+            },
+            {
+              name: "伟大复兴",
+              value: 2500
+            },
+            {
+              name: "领土完整",
+              value: 2300
+            },
+            {
+              name: "安全",
+              value: 2000
+            },
+            {
+              name: "从严治党",
+              value: 1900
+            },
+            {
+              name: "现代化经济体系",
+              value: 1800
+            },
+            {
+              name: "国防动员",
+              value: 1700
+            },
+            {
+              name: "信息化战争",
+              value: 1600
+            },
+            {
+              name: "局部战争",
+              value: 1500
+            },
+            {
+              name: "教育",
+              value: 1200
+            },
+            {
+              name: "中国梦",
+              value: 1100
+            },
+            {
+              name: "孙子兵法",
+              value: 900
+            },
+            {
+              name: "一国两制",
+              value: 800
+            },
+            {
+              name: "特色社会主义思想",
+              value: 700
+            },
+          ]
+
     }
   },
   mounted(){
-    this.ciyun()
+    // this.ciyun()
   },
   methods:{
-    ciyun(){
-        console.log('yes')
-        var echarts=this.$echarts
-          var JosnList = [
-            {name: "龙头镇", value: "111"},
-            {name: "大埔镇", value: "222"},
-            {name: "太平镇", value: "458"},
-            {name: "沙埔镇", value: "445"},
-            {name: "东泉镇", value: "456"},
-            {name: "凤山镇", value: "647"},
-            {name: "六塘镇", value: "189"},
-            {name: "冲脉镇", value: "864"},
-            {name: "寨隆镇", value: "652"},
-        ];
-        var optionFour = {
-            tooltip: {
-                show: true
-            },
-            series: [{
-                name: '项目分析',
-                type: 'wordCloud',
-                sizeRange: [10, 50],//文字范围
-                //文本旋转范围，文本将通过rotationStep45在[-90,90]范围内随机旋转
-                rotationRange: [-45, 90],
-                rotationStep: 45,
-                textRotation: [0, 45, 90, -45],
-                //形状
-                shape: 'circle',
-                textStyle: {
-                    normal: {
-                        color: function() {//文字颜色的随机色
-                            return 'rgb(' + [
-                                Math.round(Math.random() * 250),
-                                Math.round(Math.random() * 250),
-                                Math.round(Math.random() * 250)
-                            ].join(',') + ')';
-                        }
-                    },
-                    //悬停上去的字体的阴影设置
-                    emphasis: {
-                        shadowBlur: 10,
-                        shadowColor: '#333'
-                    }
-                },
-                data: JosnList
-            }]
-        };
-        var myChartFour = echarts.init(document.querySelector('.ciyun1'));
-        //使用制定的配置项和数据显示图表
-        myChartFour.setOption(optionFour);
-    }
+ 
+
+
+    
   }
 }
 </script>
