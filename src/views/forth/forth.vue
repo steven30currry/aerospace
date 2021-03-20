@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="forth">
     
     <top-bar></top-bar>
     <div class="container2"></div>
@@ -28,8 +28,8 @@
           linksName:[],
           simulation:null,
           scale:1,
-          width:800,  //d3图的宽高
-          height:500,
+          width:1000,  //d3图的宽高
+          height:600,
           colorList:['#FD7623','#3388B1','#D82952','#F3D737','#409071','#D64E52','#00FFFF','#8B008B'],
           guanlian:[{"id":"CCC2","group":"4"},
                    {"id":"CCC3","group":"4"}],
@@ -41,8 +41,6 @@
               {"id":"BBB3","group":"4"},
               {"id":"CCC1","group":"5"},
             ],
-
-
             "links": [
               {"source":"AAA","target":"BBB1","relationship":"发射","value":2},
               {"source":"AAA","target":"BBB2","relationship":"发射","value":2},
@@ -52,32 +50,24 @@
         }
       },
       mounted() {
-        // this.getGraphData() 原本
-        // console.log('get')
-        // this.testGraph["nodes"]=this.$route.query.nodes
-        // this.testGraph["links"]=this.$route.query.links
-        // this.initGraph(this.testGraph) 
+        console.log(this.$route.query.nodes)
+        console.log(this.$route.query.links)
+        this.testGraph["nodes"]=this.$route.query.nodes
+        this.testGraph["links"]=this.$route.query.links
+        // console.log(this.nodes);
+        // console.log(this.links)
+        // this.testGraph.nodes=this.nodes
+        // this.testGraph.links=this.links
+        this.initGraph(this.testGraph) 
       },
       methods: {
-        // getGraphData(){
-        //   var _this = this
-        //   this.axios.get("http://39.100.119.221:8084/api/person/"+'Rob Reiner')
-        //   //   this.axios.get("person/all")
-        //     .then(function (response) {
-        //       console.log(response)
-        //       _this.testGraph["nodes"] = [response.data]
-        //       _this.initGraph(_this.testGraph)
-        //     })
-        //     .catch(function (error) {
-        //       console.log(error)
-        //     })
-        // },
+ 
 
         initGraph(data){
           const links = data.links;
           const nodes = data.nodes;
           this.simulation = d3.forceSimulation(nodes)
-            .force("link", d3.forceLink(links).id(d => d.id).distance(150))
+            .force("link", d3.forceLink(links).id(d => d.id).distance(300))
             .force("collide",d3.forceCollide().radius(()=>30))
             .force("charge", d3.forceManyBody().strength(-10))
             .force("center", d3.forceCenter(this.width / 2, this.height / 2));
@@ -152,7 +142,7 @@
             .selectAll("circle")
             .data(nodes,d=>d.id)
             .join("circle")
-            .attr("r", 30)
+            .attr("r", 20)
             .attr("class","node")
             .attr("fill", this.color)
             .on("click",this.queryTest)
@@ -171,7 +161,7 @@
             .attr("dx",function () {
               return this.getBoundingClientRect().width/2*(-1)
             })
-            .attr("dy",50)
+            .attr("dy",34)
             .attr("class","nodeName")
 
           this.simulation.on("tick", () => {
@@ -220,7 +210,7 @@
             .attr("markerUnits", "strokeWidth")
             .attr("markerUnits", "userSpaceOnUse")
             .attr("viewBox", "0 -5 10 10")
-            .attr("refX", 35)
+            .attr("refX", 26)
             .attr("refY", 0)
             .attr("markerWidth", 12)
             .attr("markerHeight", 12)
@@ -235,7 +225,7 @@
             .attr("markerUnits", "strokeWidth")
             .attr("markerUnits", "userSpaceOnUse")
             .attr("viewBox", "0 -5 10 10")
-            .attr("refX", -25)
+            .attr("refX", -16)
             .attr("refY", 0)
             .attr("markerWidth", 12)
             .attr("markerHeight", 12)
@@ -245,101 +235,7 @@
             .attr("stroke-opacity", 0.6);
         },
 
-        // updateGraph(data){
-        //   const links = data.links;
-        //   const nodes = data.nodes;
-
-        //   this.links = this.links
-        //     .data(links,function(d){
-        //       if(typeof (d.source) === 'object'){
-        //         return d.source.id+"_"+d.relationship+"_"+d.target.id
-        //       }
-        //       else{
-        //         return d.source+"_"+d.relationship+"_"+d.target
-        //       }
-        //     })
-        //     .join('path')
-        //     .attr("stroke", "#999")
-        //     .attr("stroke-opacity", 0.6)
-        //     .attr("stroke-width", d =>{
-        //       return  Math.sqrt(d.value)
-               
-        //     })
-        //     .attr("marker-end", "url(#positiveMarker)")
-        //     .merge(this.links)
-        //     .attr('id',function (d) {
-        //       if(typeof (d.source) === 'object'){
-        //         return d.source.id+"_"+d.relationship+"_"+d.target.id
-        //       }
-        //       else{
-        //         return d.source+"_"+d.relationship+"_"+d.target
-        //       }
-        //     })
-        //     .attr("class","link");
-
-        //   this.linksName = this.linksName
-        //     .data(links,function(d){
-        //       if(typeof (d.source) === 'object'){
-        //         return d.source.id+"_"+d.relationship+"_"+d.target.id
-        //       }
-        //       else{
-        //         return d.source+"_"+d.relationship+"_"+d.target
-        //       }
-        //     })
-        //     .join('text')
-        //     .style('text-anchor','middle')
-        //     .style('fill', 'white')
-        //     .style('font-size', '10px')
-        //     .style('font-weight', 'bold');
-
-        //   this.linksName
-        //     .append('textPath')
-        //     .attr(
-        //       'xlink:href',function (d) {
-        //         if(typeof (d.source) === 'object'){
-        //           return "#"+d.source.id+"_"+d.relationship+"_"+d.target.id
-        //         }
-        //         else{
-        //           return "#"+d.source+"_"+d.relationship+"_"+d.target
-        //         }
-        //       }
-        //     )
-        //     .attr('startOffset','50%')
-        //     .merge(this.linksName)
-        //     .text(d=> d.relationship);
-
-        //   this.nodes = this.nodes
-        //     .data(nodes,d=>d.id)
-        //     .join("circle")
-        //     .attr("r", 30)
-        //     .attr("class","node")
-        //     .attr("fill", this.color)
-        //     .merge(this.nodes)
-        //     .on("click",this.select)
-        //     .call(this.drag(this.simulation));
-        //     //下面
-
-        //   this.nodes.append("title")
-        //     .text(d => d.id);
-
-        //   this.nodesName =  this.nodesName
-        //     .data(nodes)
-        //     .join("text")
-        //     .merge(this.nodesName)
-        //     .text(function (d) {
-        //       return d.id
-        //     })
-        //     .attr("dx",function () {
-        //       return this.getBoundingClientRect().width/2*(-1)
-        //     })
-        //     .attr("dy",50)
-        //     .attr("class","nodeName")
-
-        //   this.simulation.nodes(nodes)
-        //   this.simulation.force("link").links(links)
-        //   this.simulation.alpha(0.2).restart()
-        // },
-
+   
         color(d) {
           return this.colorList[d.group]
         },
@@ -442,29 +338,23 @@
 
       },
       created(){
-        getGraphResponse("载人飞船",5,300).then(
-          res => {
-<<<<<<< HEAD
-            console.log(res)
-            // this.links=res.data.nodes
-            // this.nodes=res.data.links
-            // this.$router.push({path:'/forth',query:{
-            //   links:res.data.nodes,
-            //   nodes:res.data.links
-            // }})
-=======
-            console.log("成功！！！")
-            console.log(res)
-            this.links=res.data.nodes
-            this.nodes=res.data.links
-            this.$router.push({path:'/forth',query:{
-              links:res.data.nodes,
-              nodes:res.data.links
-            }})
->>>>>>> 6c849cb4078df3277f998496669c1b79f164f16b
-          },
-          err => alert('网络错误')
-        )
+        // getGraphResponse("载人飞船",1,10).then(
+        //   res => {
+        //     console.log(res)
+        //     console.log(res.data.data.nodes)
+        //     console.log(res.data.data.links)
+        //     this.testGraph.nodes=res.data.data.nodes
+        //     this.testGraph.links=res.data.data.links
+        //     // this.links=res.data.nodes
+        //     // this.nodes=res.data.links
+        //     this.initGraph(this.testGraph)
+        //     // this.$router.push({path:'/forth',query:{
+        //     //   links:res.data.nodes,
+        //     //   nodes:res.data.links
+        //     // }})
+        //   },
+        //   err => alert('网络错误')
+        // )
 
 
         // axios.get('/api/graph',{
@@ -483,21 +373,33 @@
 </script>
 
 <style>
+  .forth{
+    height: 730px;
+    background-image: linear-gradient(
+        115deg,
+        rgba(58, 58, 158, 0.8),
+        rgba(136, 136, 206, 0.7)
+      );
+  }
+
   body{
+    height: 100%;
+    width: 100%;
     margin: 0px;
   }
 
   .container2{
-    width: 800px;
-    height: 500px;
+    width: 1000px;
+    height: 600px;
     border: 1px solid #2c3e50;
     border-radius:8px;
     margin: 0 auto;
-    margin-top: 100px;
-    background: #154360 repeating-linear-gradient(30deg,
+    margin-top: 20px;
+    /* background: #154360 repeating-linear-gradient(30deg,
     hsla(0, 0%, 100%, .1), hsla(0, 0%, 100%, .1) 15px,
-    transparent 0, transparent 30px);
-  }
+    transparent 0, transparent 30px); */
+    background: black
+}
   .node{
     stroke:#fff;
     stroke-width:1;

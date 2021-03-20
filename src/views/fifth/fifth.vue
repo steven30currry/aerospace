@@ -35,7 +35,7 @@
       </select>
     </div>
      <div class="form-group">
-      <label id="email-label" for="div3">输入显示的节点个数</label>
+      <label id="email-label" for="div3">输入显示的节点个数(预估)</label>
       <input  
         v-model="nums"
         type="number"
@@ -54,9 +54,16 @@
 
     
     <div class="form-group">
-      <button @click="jump(cur_name,depth,nums)"  class="submit-button">
+      <!-- <button @click="jump(cur_name,depth,nums)"  class="submit-button">
           查询
-      </button>
+      </button> -->
+       <el-button
+       class="submit-button"
+        type="primary"
+        @click="jump(cur_name,depth,nums)"
+        v-loading.fullscreen.lock="fullscreenLoading">
+        查询
+      </el-button>
     </div>
   </form>
 </div>
@@ -71,12 +78,14 @@ import TopBar from 'components/topBar/Topbar'
 import {getGraphResponse} from "network/graphrequest.js";
 import Forth from '../forth/forth'
 
+
 export default {
     name:"Fifth",
     data(){
       return {
-        names:["科学探测与技术试验","返回式","通信广播",
-        "气象","对地观测","中继","导航定位","月球探测器","火星探测器",
+        fullscreenLoading: false,
+        names:["科学探测与技术试验卫星","返回式卫星","通信广播卫星",
+        "气象卫星","中继卫星","导航定位卫星","月球探测器","火星探测器",
         "深空探测器","载人飞船","货运飞船","风月飞船","航天飞机","空间站"],
         cur_name:"",
         depth:"",
@@ -90,56 +99,23 @@ export default {
       Forth
     },
     methods:{
-     
       
-      // jump(cur_name,depth,nums){
-      //   const axios = require('axios');
-        
-        
-        // axios.get('http://39.100.119.221:8085/api/graph',{
-        //   params:{
-        //     nodeName:name,
-        //     depth:depth,
-        //     maxNums:nums
-        //   }
-        // })
-        // .then(res => console.log(res))
-        // .catch(err => console.log(err))
-        
-        // getGraphResponse(cur_name,depth,nums).then(
-        //   res => {
-        //     console.log(res)
-        //     this.links=res.data.nodes
-        //     this.nodes=res.data.links
-        //     this.$router.push({path:'/forth',query:{
-        //       links:res.data.nodes,
-        //       nodes:res.data.links
-        //     }})
-        //   },
-        //   err => alert('网络错误')
-        // )
-        
-      // },
-
-       jump(a,b,c){
-        console.log('yes')
-        // this.$router.push('/forth')
-        setTimeout(() => {
-          this.$router.push({
-          path:'/forth',
-          query:{
-            links:[ {"source":"AAA","target":"BBB1","relationship":"发射","value":2},
-              {"source":"AAA","target":"BBB2","relationship":"发射","value":2},
-              {"source":"AAA","target":"BBB3","relationship":"发射","value":2},],
-            nodes:[
-              {"id":"AAA","group":"1"},
-              {"id":"BBB1","group":"2"},
-              {"id":"BBB2","group":"3"},
-              {"id":"BBB3","group":"4"}
-            ]
-          }
-        })
-        }, 1000);
+       jump(cur_name,depth,nums){
+        this.fullscreenLoading=true;
+        getGraphResponse(cur_name,depth,nums).then(
+          res => {
+            var newres=res.data.data
+            console.log(newres)
+            this.links=newres.links
+            this.nodes=newres.nodes
+            this.$router.push({path:'/forth',query:{
+              links:newres.links,
+              nodes:newres.nodes
+            }})
+            this.fullscreenLoading=false
+          },
+          err => alert('网络错误')
+        )
       },
     }
 }

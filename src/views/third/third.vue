@@ -2,8 +2,8 @@
   <div class="third">
     <div class="chat">
       <div class="chat-title">
-        <h1>知识科普</h1>
-        <h2>问答机器人</h2>
+        <h1>知识科普机器人</h1>
+        <!-- <h2></h2> -->
         <figure class="avatar">
           <img src="../../assets/img/chat/robot.png" alt="">
         </figure>
@@ -95,7 +95,12 @@ body {
   top: 0;
   left: 0;
   z-index: 1;
-  background: url('https://images.unsplash.com/photo-1451186859696-371d9477be93?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925') no-repeat 0 0;
+  background-image: linear-gradient(
+        115deg,
+        rgba(58, 58, 158, 0.8),
+        rgba(136, 136, 206, 0.7)
+      );
+  // background: url('https://images.unsplash.com/photo-1451186859696-371d9477be93?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925') no-repeat 0 0;
   filter: blur(80px);
   transform: scale(1.2);
 }
@@ -325,7 +330,7 @@ Message Box
     resize: none;
     color: rgba(255, 255, 255, .7);
     font-size: 13px;
-    height: 20px;
+    height: 30px;
     margin: 0;
     padding-right: 20px;
     width: 600px;
@@ -338,7 +343,7 @@ Message Box
   & .message-submit {
     position: absolute;
     z-index: 1;
-    top: 9px;
+    top: 15px;
     right: 10px;
     color: #fff;
     border: none;
