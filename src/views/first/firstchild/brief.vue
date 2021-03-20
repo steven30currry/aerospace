@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .brief{
         width:990px;
         margin-bottom: 20px;

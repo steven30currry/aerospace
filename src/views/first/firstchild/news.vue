@@ -118,7 +118,7 @@ export default {
         margin: 0;
     }
     .news{
-        width: 370px;
+        width: 555px;
     }
     .title2{
         line-height: 23px;

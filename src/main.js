@@ -6,7 +6,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import './plugins/element.js'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import echarts from 'echarts'
+import  echarts from 'echarts'
 import '../node_modules/echarts/map/js/world.js'
 
 Vue.prototype.$echarts=echarts

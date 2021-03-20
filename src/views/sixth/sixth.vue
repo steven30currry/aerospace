@@ -6,52 +6,31 @@
     </header>
     <section class="mainbox">
       <div class="column">
-        <div style="height:4rem" class="panel chart1">
+        <div style="height:5.5rem" class="panel chart1">
           <h2>
-            各发射场发射次数（至今） 
+            中国各发射场发射次数（至今） 
             <!-- <a href="javascript:;">2019</a>
             <a href="javacript:;"> 2020</a> -->
           </h2>
-          <div style="height:3.3rem" class="chart" ref="chart1"></div>
+          <div style="height:4.4rem" class="chart" ref="chart1"></div>
           <div class="panel-footer"></div>
         </div>
-        <div style="height:3.7rem" class="panel chart2">
-          <h2>中国发射的成功/失败</h2>
-          <div style="width:5.5rem" class="chart"></div>
-          <div class="panel-footer"></div>
-        </div>
-        <div  style="height:9rem" class="panel chart3">
-          <h2>绕行轨道统计</h2>
+       
+        <div  style="height:8.5rem" class="panel chart3">
+          <h2>绕行轨道统计（中国）</h2>
           <div style="height:8rem" class="chart"></div>
           <div class="panel-footer"></div>
         </div>
       </div>
       <div class="column">
-        <!-- <div class="panel " style="height:1.8rem">
-          <h1>航天数据可视化</h1>
-          <div class="panel-footer"></div>
-        </div> -->
-          <!-- <div class="no">
-          <div class="no-hd">
-            <ul>
-              <li>9</li>
-              <li>528</li>
-            </ul>
-          </div>
-          <div class="no-bd">
-            <ul>
-              <li>能够发射的火箭的国家</li>
-              <li>进入太空的宇航员</li>
-            </ul>
-          </div>
-        </div>   -->
-        <div style="height:5rem" class="panel chart5" >
+    
+        <div style="height:4.5rem" class="panel chart5" >
           <h2>2021中国运载火箭</h2>
           <div style="height:4.5rem" class="chart" ></div>
           <div class="panel-footer"></div>
         </div>
-        <div class="panel " style="height:10rem">
-          <h2>饼形图-地区分布</h2>
+        <div class="panel " style="height:9.5rem">
+          <h2>世界发射情况</h2>
           <div class="chart" ref="bigchart" style="height:9rem"></div>
           <div class="panel-footer"></div>
         </div>
@@ -64,14 +43,18 @@
       </div>
       <div class="column">
         
-        <!-- <div class="panel line1">
+         <div style="height:5.5rem" class="panel chart2">
+          <h2>中国发射的成功/失败</h2>
+          <div style="height:4.5rem" class="chart"></div>
+          <div class="panel-footer"></div>
+        </div><!-- <div class="panel line1">
           <h2>折线图-播放量</h2>
           <div class="chart"></div>
           <div class="panel-footer"></div>
         </div> -->
-        <div class="panel chart6" style="height:7.9375rem">
+        <div class="panel chart6" style="height:8.5rem">
           <h2>各国预算排行</h2>
-          <div class="chart" style="height:7rem"></div>
+          <div class="chart" style="height:8rem"></div>
           <div class="panel-footer"></div>
         </div>
       </div>
@@ -168,22 +151,22 @@ export default {
               data2:['One','Two','Three']
             },
             chart6:{
-              'A':[17.3,17.79,18.71,18.41,17.73,16.91,17.67,28.09,19.31,19.57,20.78],
+              'A':[17.3,17.79,18.71,18.41,17.73,16.91,17.67,28.09,19.31,19.57,20.78,21.5],
                  'B':[3,3.91,4.16,4.72,4.74,4.76,7.6,5.24,5.87,6.39,6.24,6.37],
                     'C':[2.85,2.43,2.13,3.85,4.68,5.54,4.34,3.26,3.21,3.7,4.17,4.17],
                        'D':[1.71,1.75,2.45,2.34,2.18,2.02,1.79,2.43,2.95,2.76,3.06,3.06],
-                          'E':[1.3,1.36,2.25,4.73,5.93,2.69,3.34,,4.94,5.39,6.11,11],
+                          'E':[1.3,1.36,2.25,2.52,4.73,5.93,2.69,3.34,4.94,5.39,6.11,11],
             }
         }
     },
     mounted(){
       flexible()
       this.network1()
-      // this.network2()
-      // this.network3()//有问题
-      // this.network4()
+      this.network2()
+      this.network3()
+      this.network4()
       this.network5()
-      // this.netwrok6()
+      this.netwrok6()
     },
     methods:{
       network1(){
@@ -218,10 +201,13 @@ export default {
       },
       network3(){
         getSixResponse3().then(res => {
-       
+          var arr= res.data.data
+          for(var i=0;i<arr.length;i++){
+            this.chart3.name[i]=arr[i].trackName
+            this.chart3.value[i]=arr[i].surrroundCount
+          }
+                  console.log(this.chart3)
 
-      
-        
           this.getEchart3()
         })
       },
@@ -235,6 +221,7 @@ export default {
       network5(){
         getSixResponse5().then(res => {
           var arr=res.data.data
+          console.log(arr)
           for(var i=0;i<arr.length;i++){
             this.chart5.data1[i].value=arr[i].allCount
             this.chart5.data1[i].name=arr[i].rocketName
@@ -553,12 +540,130 @@ export default {
         var myChart = echarts.init(document.querySelector(".chart3 .chart"));
   
     
-  
+   var data = [70, 34, 60, 78, 69,70, 34, 60, 78, 69];
+  var titlename = this.chart3.name
+  var valdata = this.chart3.value
+  var myColor = ['#73DDFF', '#73ACFF', '#FDD56A', '#FDB36A', '#FD866A', '#9E87FF', 
+ ' #5470c6',
+'#91cc75',
+'#fac858',
+'#ee6666',
+'#73c0de',
+'#3ba272',
+'#fc8452',
+'#9a60b4',
+'#ea7ccc'];
+  var sum=0;
+  for(var i=0;i<valdata.length;i++)
+  sum+=valdata[i];
+  for(var i=0;i<valdata.length;i++)
+  data[i]=parseInt(0.5+100*valdata[i]/sum)
+  var option = {
+    //图标位置
+    grid: {
+      top: "10%",
+      left: "28%",
+      bottom: "10%"
+    },
+    xAxis: {
+      show: false
+    },
+    yAxis: [
+      {
+        show: true,
+        data: titlename,
+        inverse: true,
+        axisLine: {
+          show: false
+        },
+        splitLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          color: "#fff",
+
+          rich: {
+            lg: {
+              backgroundColor: "#339911",
+              color: "#fff",
+              borderRadius: 15,
+              // padding: 5,
+              align: "center",
+              width: 15,
+              height: 15
+            }
+          }
+        }
+      },
+      {
+        show: true,
+        inverse: true,
+        data: valdata,
+        axisLabel: {
+          textStyle: {
+            fontSize: 12,
+            color: "#fff"
+          }
+        }
+      }
+    ],
+    series: [
+      {
+        name: "条",
+        type: "bar",
+        yAxisIndex: 0,
+        data: data,
+        barCategoryGap: 50,
+        barWidth: 10,
+        itemStyle: {
+          normal: {
+            barBorderRadius: 20,
+            color: function(params) {
+              var num = myColor.length;
+              return myColor[params.dataIndex % num];
+            }
+          }
+        },
+        label: {
+          normal: {
+            show: true,
+            position: "inside",
+            formatter: "       {c}%"
+          }
+        }
+      },
+      {
+        name: "框",
+        type: "bar",
+        yAxisIndex: 1,
+        barCategoryGap: 50,
+        data: [100, 100, 100, 100, 100,100, 100, 100, 100, 100],
+        barWidth: 15,
+        itemStyle: {
+          normal: {
+            color: "none",
+            borderColor: "#00c1de",
+            borderWidth: 3,
+            barBorderRadius: 15
+          }
+        }
+      }
+    ]
+  };
+
   // 使用刚指定的配置项和数据显示图表。
   myChart.setOption(option);
   window.addEventListener("resize", function() {
     myChart.resize();
   });
+  
+
+
+
+
       },
       getEchart4(){
         var echarts=this.$echarts
@@ -963,8 +1068,17 @@ for (var n = 0; n < years.length; n++) {
         var myChart = echarts.init(document.querySelector(".chart5  .chart"));
       var res= this.chart5.data1
 
-var colorList = ['#73DDFF', '#73ACFF', '#FDD56A', '#FDB36A', '#FD866A', '#9E87FF', '#58D5FF', '#58D5FF'
-, '#58D5FF', '#58D5FF']
+var colorList = [
+  '#73DDFF', '#73ACFF', '#FDD56A', '#FDB36A', '#FD866A', '#9E87FF', 
+ ' #5470c6',
+'#91cc75',
+'#fac858',
+'#ee6666',
+'#73c0de',
+'#3ba272',
+'#fc8452',
+'#9a60b4',
+'#ea7ccc']
 var arr=[
                 {value: 123, name: '丙烯腈'},
                 {value: 102, name: '环氧乙烷'},

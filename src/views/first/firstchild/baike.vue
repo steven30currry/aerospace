@@ -87,7 +87,7 @@ export default {
     }
     .baike-list{
         background: white;
-        height: 300px;
+        height: 70px;
         margin-top: 10px;
         padding: 0 20px 0 15px;
     }
@@ -100,7 +100,7 @@ export default {
         font-weight: normal;
     }
     .baike-box{
-        height:75px;
+        height:50px;
     }
     .baike-img{
         float: left;
